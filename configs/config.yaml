@@ -2,10 +2,10 @@ server:
   host: "localhost"
   port: 8080
 db:
-  dbname: "orderwb"
+  dbname: "wb"
   host: "localhost"
-  user: "admin"
-  password: "password"
+  user: "wb_user"
+  password: "1234"
   port: 5432
   sslmode: disable
 nats:
