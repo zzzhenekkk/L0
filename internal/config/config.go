@@ -12,10 +12,12 @@ type Config struct {
 }
 
 type NatsConfig struct {
-	Cluster string
-	URL     string
-	Client  string
-	Channel string
+	Cluster        string
+	URL            string
+	Client         string
+	ClientNotifier string
+	Subject        string
+	DurableName    string
 }
 
 type DBConfig struct {

@@ -10,19 +10,19 @@ import (
 )
 
 func main() {
-	conf, err := config.LoadConfig("../../configs")
+	conf, err := config.LoadConfig("./configs")
 	if err != nil {
 		log.Fatal(err)
 	}
 	log.Printf("Unmarshal config %+v", conf)
 
-	sc, err := stan.Connect(conf.Nats.Cluster, "order-service-notifier")
+	sc, err := stan.Connect(conf.Nats.Cluster, conf.Nats.ClientNotifier)
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer sc.Close()
 
-	publicOneOrder(sc)
+	publicOneOrder(sc, conf)
 
 }
 
@@ -40,15 +40,15 @@ func publishOrder(sc stan.Conn, order domain.Order) {
 	log.Println("Order published successfully", order.OrderUID)
 }
 
-func publicOneOrder(sc stan.Conn) {
-	data, err := os.ReadFile("../../internal/notifier/3.json")
+func publicOneOrder(sc stan.Conn, cfg *config.Config) {
+	data, err := os.ReadFile("./internal/notifier/correct.json")
 
 	if err != nil {
 		log.Fatal("Error reading file:", err)
 	}
 	log.Printf("Expected json: %s", data)
 
-	err = sc.Publish("orders", data)
+	err = sc.Publish(cfg.Nats.Subject, data)
 	if err != nil {
 		log.Println("Error publishing order: %v", err)
 		return

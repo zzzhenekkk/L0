@@ -11,5 +11,7 @@ db:
 nats:
   cluster: "test-cluster"
   url: "nats://localhost:4222"
-  client: "stan-pub"
-  Channel: "order"
+  client: "order-service-client"
+  clientnotifier: "notifier-client"
+  subject: "order"
+  durablename: "order-durable-subscription"
