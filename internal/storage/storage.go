@@ -150,3 +150,9 @@ func (repo *PostgresOrderRepository) GetAllOrders(cache *cache.OrderCache) error
 
 	return nil
 }
+
+func (repo *PostgresOrderRepository) SaveUncorrectOrder(order string) error {
+	query := `INSERT INTO uncorrect_orders_subscribe (order_data) VALUES ($1)`
+	_, err := repo.DB.Exec(context.Background(), query, order)
+	return err
+}

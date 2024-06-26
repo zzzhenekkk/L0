@@ -40,6 +40,10 @@ func (n *NatsSubscriber) SubscribeToOrders() error {
 
 func (n *NatsSubscriber) Close() {
 	if n.natsConn != nil {
-		n.natsConn.Close()
+		if err := n.natsConn.Close(); err != nil {
+			log.Printf("Error closing NATS connection: %v", err)
+		} else {
+			log.Println("NATS connection closed successfully")
+		}
 	}
 }

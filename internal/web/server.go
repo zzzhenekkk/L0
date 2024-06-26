@@ -3,10 +3,9 @@ package web
 import (
 	"L0/internal/config"
 	"L0/internal/service"
+	"context"
 	"log"
 	"net/http"
-	"os"
-	"os/signal"
 	"strconv"
 	"time"
 
@@ -31,21 +30,15 @@ func NewServer(cfg *config.Config, orderService *service.OrderService) *Server {
 	}
 }
 
-func (s *Server) Run() {
-	go func() {
-		if err := s.httpServer.ListenAndServe(); err != nil && err != http.ErrServerClosed {
-			log.Fatalf("Could not listen on %s: %v\n", s.httpServer.Addr, err)
-		}
-	}()
-	log.Printf("Server is running on port %s", s.httpServer.Addr)
+func (s *Server) Run() error {
+	return s.httpServer.ListenAndServe()
+}
 
-	quit := make(chan os.Signal, 1)
-	signal.Notify(quit, os.Interrupt)
-	<-quit
+func (s *Server) Addr() string {
+	return s.httpServer.Addr
+}
 
-	log.Println("Shutting down server...")
-
-	if err := s.httpServer.Close(); err != nil {
-		log.Fatalf("Server Close: %v", err)
-	}
+func (s *Server) Shutdown(ctx context.Context) error {
+	log.Println("Shutting down HTTP server...")
+	return s.httpServer.Shutdown(ctx)
 }

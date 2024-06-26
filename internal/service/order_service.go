@@ -29,6 +29,8 @@ func (s *OrderService) ProcessOrder(msg *stan.Msg) {
 	err := json.Unmarshal(msg.Data, &order)
 	if err != nil {
 		log.Printf("Error unmarshalling order: %v", err)
+		s.saveUncorrectOrder(msg.Data)
+		msg.Ack()
 		return
 	}
 
@@ -42,9 +44,10 @@ func (s *OrderService) ProcessOrder(msg *stan.Msg) {
 
 	if err := msg.Ack(); err != nil {
 		log.Printf("Error acknowledging message: %v", err)
-	} else {
-		log.Println("Message acknowledged successfully")
+		return
 	}
+
+	log.Println("Adding an order to the database successfully.", "OrderUID:", order.OrderUID)
 }
 
 func (s *OrderService) LoadCache() error {
@@ -53,23 +56,28 @@ func (s *OrderService) LoadCache() error {
 		return err
 	}
 
-	//s.cache.LoadFromDB(orders)
 	return nil
 }
 
 func (s *OrderService) GetOrder(orderUID string) (*domain.Order, bool) {
-	// Сначала пытаемся получить заказ из кэша
 	if order, ok := s.cache.Get(orderUID); ok {
 		return order, true
 	}
 
-	// Если в кэше нет, получаем из базы данных
 	order, err := s.repoDB.GetOrder(orderUID)
 	if err != nil {
 		return nil, false
 	}
 
-	// Сохраняем в кэш
 	s.cache.Set(order)
 	return order, true
+}
+
+func (s *OrderService) saveUncorrectOrder(orderData []byte) {
+	orderStr := string(orderData)
+	if err := s.repoDB.SaveUncorrectOrder(orderStr); err != nil {
+		log.Printf("Error saving uncorrect order: %v", err)
+	} else {
+		log.Println("Uncorrect order saved to database:", string(orderData))
+	}
 }

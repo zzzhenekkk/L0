@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5a5e2150-bdad-4461-920e-e545d1a6cd92" name="Changes" comment="cache and cache load ready">
-      <change afterPath="$PROJECT_DIR$/internal/web/handlers.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/web/server.go" afterDir="false" />
+    <list default="true" id="5a5e2150-bdad-4461-920e-e545d1a6cd92" name="Changes" comment="http server and handler done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/notifier/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/notifier/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/service/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/service/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/cache/cache.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/cache.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/notifier/correct.json" beforeDir="false" afterPath="$PROJECT_DIR$/internal/notifier/correct.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/nats/nats_subscriber.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/nats/nats_subscriber.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/service/order_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/order_service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/storage/storage.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/storage/storage.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/web/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/web/server.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +133,8 @@
     <MESSAGE value="Improved subscriber" />
     <MESSAGE value="test commit" />
     <MESSAGE value="cache and cache load ready" />
-    <option name="LAST_COMMIT_MESSAGE" value="cache and cache load ready" />
+    <MESSAGE value="http server and handler done" />
+    <option name="LAST_COMMIT_MESSAGE" value="http server and handler done" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
@@ -145,7 +144,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/cmd/notifier/main.go</url>
-          <line>11</line>
+          <line>9</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
