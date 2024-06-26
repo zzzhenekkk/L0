@@ -30,7 +30,7 @@ func main() {
 	defer repo.CloseDB()
 
 	orderCache := cache.NewOrderCache()
-	defer orderCache.PrintCache()
+	//defer orderCache.PrintCache()
 	orderService := service.NewOrderService(repo, orderCache)
 
 	natsSubscriber := nats.NewNatsSubscriber(cfg, orderService)
@@ -53,7 +53,6 @@ func main() {
 	log.Printf("Server is running on port %s", server.Addr())
 
 	<-ctx.Done()
-	log.Println("Shutting down gracefully, press Ctrl+C again to force")
 
 	shutdownCtx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
