@@ -6,6 +6,7 @@ import (
 	"L0/internal/nats"
 	"L0/internal/service"
 	"L0/internal/storage"
+	"L0/internal/web"
 	"log"
 	"os"
 	"os/signal"
@@ -39,6 +40,7 @@ func main() {
 
 	//subscribeOrder(sc, cfg, repo)
 	orderCache := cache.NewOrderCache()
+	defer orderCache.PrintCache()
 	orderService := service.NewOrderService(repo, orderCache)
 
 	natsSubscriber := nats.NewNatsSubscriber(cfg, orderService)
@@ -46,6 +48,9 @@ func main() {
 	if err != nil {
 		log.Fatalf("Unable to subscribe to orders: %v\n", err)
 	}
+
+	server := web.NewServer(cfg, orderService)
+	server.Run()
 
 	quit := make(chan os.Signal, 1)
 	signal.Notify(quit, os.Interrupt, os.Interrupt)

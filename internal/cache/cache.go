@@ -2,6 +2,7 @@ package cache
 
 import (
 	"L0/internal/domain"
+	"log"
 	"sync"
 )
 
@@ -23,4 +24,13 @@ func (c *OrderCache) Get(orderUID string) (*domain.Order, bool) {
 
 func (c *OrderCache) Set(order *domain.Order) {
 	c.cache.Store(order.OrderUID, order)
+}
+
+func (c *OrderCache) PrintCache() {
+	c.cache.Range(func(key, value interface{}) bool {
+
+		log.Printf("Key: %v, Value: %v\n", key, value)
+		return true
+	})
+
 }

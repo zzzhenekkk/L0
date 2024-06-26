@@ -56,3 +56,20 @@ func (s *OrderService) LoadCache() error {
 	//s.cache.LoadFromDB(orders)
 	return nil
 }
+
+func (s *OrderService) GetOrder(orderUID string) (*domain.Order, bool) {
+	// Сначала пытаемся получить заказ из кэша
+	if order, ok := s.cache.Get(orderUID); ok {
+		return order, true
+	}
+
+	// Если в кэше нет, получаем из базы данных
+	order, err := s.repoDB.GetOrder(orderUID)
+	if err != nil {
+		return nil, false
+	}
+
+	// Сохраняем в кэш
+	s.cache.Set(order)
+	return order, true
+}

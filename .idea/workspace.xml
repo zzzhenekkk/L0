@@ -4,17 +4,16 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5a5e2150-bdad-4461-920e-e545d1a6cd92" name="Changes" comment="test commit">
-      <change afterPath="$PROJECT_DIR$/internal/cache/cache.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/nats/nats_subscriber.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/service/order_service.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/storage/storage.go" afterDir="false" />
+    <list default="true" id="5a5e2150-bdad-4461-920e-e545d1a6cd92" name="Changes" comment="cache and cache load ready">
+      <change afterPath="$PROJECT_DIR$/internal/web/handlers.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/web/server.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/service/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/service/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configs/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/config.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/cache/cache.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/cache.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/notifier/correct.json" beforeDir="false" afterPath="$PROJECT_DIR$/internal/notifier/correct.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/service/order_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/order_service.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,8 +65,8 @@
       <recent name="$PROJECT_DIR$/internal/notifier" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/configs" />
       <recent name="$PROJECT_DIR$/internal" />
+      <recent name="$PROJECT_DIR$/configs" />
       <recent name="$PROJECT_DIR$/cmd/app" />
       <recent name="$PROJECT_DIR$/cmd" />
     </key>
@@ -135,7 +134,8 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="Improved subscriber" />
     <MESSAGE value="test commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="test commit" />
+    <MESSAGE value="cache and cache load ready" />
+    <option name="LAST_COMMIT_MESSAGE" value="cache and cache load ready" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
