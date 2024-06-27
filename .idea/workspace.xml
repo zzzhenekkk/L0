@@ -4,19 +4,13 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5a5e2150-bdad-4461-920e-e545d1a6cd92" name="Changes" comment="Validate done">
-      <change afterPath="$PROJECT_DIR$/cmd/notifierPost/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/service/order_service_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/storage/storage_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/web/handlers_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/post.lua" afterDir="false" />
+    <list default="true" id="5a5e2150-bdad-4461-920e-e545d1a6cd92" name="Changes" comment="wrk and vegeta done with notifierPostPublish">
+      <change afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/notifierPost/main.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/notifier/correct.json" beforeDir="false" afterPath="$PROJECT_DIR$/internal/notifier/correct.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/order_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/order_service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/web/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/web/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post.lua" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +135,8 @@
     <MESSAGE value="http server and handler done" />
     <MESSAGE value="right Shutdown and processing of incorrect json orders ready!" />
     <MESSAGE value="Validate done" />
-    <option name="LAST_COMMIT_MESSAGE" value="Validate done" />
+    <MESSAGE value="wrk and vegeta done with notifierPostPublish" />
+    <option name="LAST_COMMIT_MESSAGE" value="wrk and vegeta done with notifierPostPublish" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
