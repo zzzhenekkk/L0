@@ -26,38 +26,40 @@ func NewOrderService(repo *storage.PostgresOrderRepository, cache *cache.OrderCa
 }
 
 func (s *OrderService) ProcessOrder(msg *stan.Msg) {
+	err := s.ProcessOrderData(msg.Data)
+	if err != nil {
+		log.Printf("Error processing order: %v", err)
+		s.saveUncorrectOrder(msg.Data)
+	}
+	if err := msg.Ack(); err != nil {
+		log.Printf("Error acknowledging message: %v", err)
+	}
+}
+
+func (s *OrderService) ProcessOrderData(data []byte) error {
 	var order domain.Order
 
-	err := json.Unmarshal(msg.Data, &order)
+	err := json.Unmarshal(data, &order)
 	if err != nil {
 		log.Printf("Error unmarshalling order: %v", err)
-		s.saveUncorrectOrder(msg.Data)
-		msg.Ack()
-		return
+		return err
 	}
 
 	err = s.validate.Struct(order)
 	if err != nil {
 		log.Printf("Validation error: %v", err)
-		s.saveUncorrectOrder(msg.Data)
-		msg.Ack()
-		return
+		return err
 	}
 
 	err = s.repoDB.AddOrder(&order)
 	if err != nil {
 		log.Printf("Error adding order to database: %v", err)
-		return
+		return err
 	}
 
 	s.cache.Set(&order)
-
-	if err := msg.Ack(); err != nil {
-		log.Printf("Error acknowledging message: %v", err)
-		return
-	}
-
 	log.Println("Adding an order to the database successfully.", "OrderUID:", order.OrderUID)
+	return nil
 }
 
 func (s *OrderService) LoadCache() error {

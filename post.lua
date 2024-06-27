@@ -1,3 +1,5 @@
+wrk.method = "POST"
+wrk.body   = [[
 {
   "order_uid": "b563feb7b2b84b6test",
   "track_number": "WBILMTESTTRACK",
@@ -13,7 +15,6 @@
   },
   "payment": {
     "transaction": "b563feb7b2b84b6test",
-    "request_id": "",
     "currency": "USD",
     "provider": "wbpay",
     "amount": 1817,
@@ -47,3 +48,5 @@
   "date_created": "2021-11-26T06:22:19Z",
   "oof_shard": "1"
 }
+]]
+wrk.headers["Content-Type"] = "application/json"

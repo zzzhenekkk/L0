@@ -13,7 +13,8 @@ import (
 )
 
 type Server struct {
-	httpServer *http.Server
+	httpServer   *http.Server
+	orderService *service.OrderService
 }
 
 func NewServer(cfg *config.Config, orderService *service.OrderService) *Server {
@@ -27,6 +28,7 @@ func NewServer(cfg *config.Config, orderService *service.OrderService) *Server {
 			WriteTimeout: 15 * time.Second,
 			ReadTimeout:  15 * time.Second,
 		},
+		orderService: orderService,
 	}
 }
 
@@ -41,4 +43,8 @@ func (s *Server) Addr() string {
 func (s *Server) Shutdown(ctx context.Context) error {
 	log.Println("Shutting down HTTP server...")
 	return s.httpServer.Shutdown(ctx)
+}
+
+func (s *Server) GetOrderService() *service.OrderService {
+	return s.orderService
 }
