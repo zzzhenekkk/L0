@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5a5e2150-bdad-4461-920e-e545d1a6cd92" name="Changes" comment="wrk and vegeta done with notifierPostPublish">
-      <change afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/notifierPost/main.go" beforeDir="false" />
+    <list default="true" id="5a5e2150-bdad-4461-920e-e545d1a6cd92" name="Changes" comment="readme done">
       <change beforePath="$PROJECT_DIR$/internal/notifier/correct.json" beforeDir="false" afterPath="$PROJECT_DIR$/internal/notifier/correct.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/post.lua" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +131,8 @@
     <MESSAGE value="right Shutdown and processing of incorrect json orders ready!" />
     <MESSAGE value="Validate done" />
     <MESSAGE value="wrk and vegeta done with notifierPostPublish" />
-    <option name="LAST_COMMIT_MESSAGE" value="wrk and vegeta done with notifierPostPublish" />
+    <MESSAGE value="readme done" />
+    <option name="LAST_COMMIT_MESSAGE" value="readme done" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
